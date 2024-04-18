@@ -6,8 +6,8 @@
 "use client";
 
 import React, { useState } from "react";
+import {Button} from "@/components/ui/button";
 import TodoItem from "@/components/TodoItem";
-import styles from "@/styles/TodoList.module.css";
 
 // TodoList 컴포넌트를 정의합니다.
 const TodoList = () => {
@@ -59,25 +59,30 @@ const TodoList = () => {
 
   // 컴포넌트를 렌더링합니다.
   return (
-    <div className={styles.container}>
-      <h1>Todo List</h1>
+    <div className="max-w-[600px] mx-auto my-5 p-5 bg-white rounded-lg shadow-md">
+      <h1 className="text-center w-full text-2xl mb-7 font-bold underline underline-offset-4 decoration-wavy">
+        Todo List</h1>
       {/* 할 일을 입력받는 텍스트 필드입니다. */}
+      <div className="justify-center flex">
       <input
         type="text"
-        className={styles.itemInput}
+        className="h-10 w-1/3 m-3 p-1 mb-4 border border-gray-300 rounded"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
+
       <input
         type="date"
-        className={styles.itemInput}
+        className="h-10 w-1/3 p-1 m-3 mb-4 border border-gray-300 rounded"
         value={date}
         onChange={(d) => setDate(d.target.value)}
       />
+
       {/* 할 일을 추가하는 버튼입니다. */}
-      <button className={styles.addButton} onClick={addTodo}>
+      <Button  className="m-3" onClick={addTodo}>
         Add Todo
-      </button>
+      </Button>
+      </div>
       {/* 할 일 목록을 렌더링합니다. */}
       <ul>
         {todos.map((todo) => (
