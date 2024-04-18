@@ -16,16 +16,16 @@ const TodoItem = ({ todo, onToggle, onDelete }) => {
     <li className="justify-center items-center flex my-2">
       {/* 체크박스를 렌더링하고, 체크박스의 상태를 할 일의 완료 상태와 동기화합니다.
           체크박스의 상태가 변경되면 onToggle 함수를 호출하여 완료 상태를 업데이트합니다. */}
-      <Checkbox className="mx-3" checked={todo.completed} onCheckedChange={onToggle} />
+      <Checkbox className="mx-2" checked={todo.completed} onCheckedChange={onToggle} />
 
       {/* 할 일의 텍스트를 렌더링하고, 완료 상태에 따라 텍스트에 취소선을 적용합니다. */}
       <span
-        className="mx-2 w-1/3"
+        className={todo.completed?"mx-2 w-1/3 line-through":"mx-2 w-1/3"}
       >
         {todo.text}
       </span>
       <span
-        className="mx-2 w-1/3"
+        className={todo.completed?"mx-2 w-1/3 line-through":"mx-2 w-1/3"}
       >
         {todo.date}
       </span>
