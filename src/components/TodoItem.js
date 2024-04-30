@@ -29,6 +29,11 @@ const TodoItem = ({ todo, onToggle, onDelete }) => {
       >
         {todo.date}
       </span>
+      <span
+        className={todo.completed?"mx-2 w-1/3 line-through":"mx-2 w-1/3"}
+      >
+        {new Date(todo.update).toDateString()}
+      </span>
 
       {/* 삭제 버튼을 렌더링하고, 클릭 시 onDelete 함수를 호출하여 해당 할 일을 삭제합니다. */}
       <Button className="h-8"  variant="destructive" onClick={onDelete}>Delete</Button>
